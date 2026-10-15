@@ -1,0 +1,270 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* --- Root Variables for Cute Pastel Theme --- */
+:root {
+  --bg-color: #fff9fb;
+  --card-bg: #ffffff;
+  --primary-color: #ffb7b2; /* Soft pastel pink */
+  --primary-hover: #ff948d;
+  --secondary-color: #b5ead7; /* Soft mint */
+  --text-color: #6c5b7b;
+  --heading-color: #355c7d;
+  --border-color: #fce4ec;
+  --input-bg: #fffcfd;
+  --shadow-sm: 0 4px 15px rgba(255, 183, 178, 0.15);
+  --shadow-lg: 0 8px 25px rgba(255, 183, 178, 0.25);
+  --radius: 16px;
+}
+
+/* --- Global Resets & Box Model Rule --- */
+/* border-box ensures padding and borders are included in the element's total width/height */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif, system-ui;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px; /* Outer spacing */
+}
+
+/* --- Header & Navigation (Box Model in Action) --- */
+.cute-header {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 30px auto; /* Box Model: Margins center the block and add bottom spacing */
+  padding: 24px;            /* Box Model: Internal spacing */
+  background: var(--card-bg);
+  border: 2px dashed var(--border-color); /* Box Model: Border */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.cute-title {
+  color: var(--heading-color);
+  font-size: 2rem;
+  margin-bottom: 15px; /* Box Model: Margin below title */
+  font-weight: 700;
+}
+
+.cute-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cute-nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--border-color);
+  padding: 8px 18px; /* Box Model: Inner spacing of buttons */
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cute-nav-link:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* --- Main Layout --- */
+.cute-main {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto; /* Box Model: Centering container */
+}
+
+.cute-section {
+  width: 100%;
+  background: var(--card-bg);
+  padding: 30px; /* Box Model: Generous inner padding */
+  margin-bottom: 25px; /* Box Model: Space between sections */
+  border: 1px solid var(--border-color); /* Box Model: Outer border */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.cute-section-title {
+  color: var(--heading-color);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--border-color); /* Box Model: Bottom divider line */
+  padding-bottom: 8px; /* Box Model: Padding above border */
+}
+
+.cute-text {
+  margin-bottom: 20px;
+  color: #887894;
+}
+
+/* --- Form Styling (Box Model Properties) --- */
+.cute-fieldset {
+  width: 100%;
+  border: 2px solid var(--border-color); /* Box Model: Fieldset border */
+  border-radius: var(--radius);
+  padding: 20px; /* Box Model: Internal padding */
+  margin-bottom: 20px; /* Box Model: Bottom margin */
+  background-color: var(--input-bg);
+}
+
+.cute-legend {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 6px 16px; /* Box Model: Legend padding */
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cute-label {
+  display: block;
+  margin-top: 12px; /* Box Model: Spacing above label */
+  margin-bottom: 6px; /* Box Model: Spacing below label */
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.cute-input,
+.cute-select,
+.cute-textarea {
+  width: 100%; /* Box Model: Full width block */
+  padding: 12px 16px; /* Box Model: Internal text breathing room */
+  margin-bottom: 10px; /* Box Model: Spacing below inputs */
+  border: 2px solid var(--border-color); /* Box Model: Input border */
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-family: inherit;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cute-input:focus,
+.cute-select:focus,
+.cute-textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(255, 183, 178, 0.4);
+}
+
+/* Radio & Checkboxes */
+.cute-checkbox,
+.cute-radio {
+  accent-color: var(--primary-color);
+  margin-right: 8px; /* Box Model: Spacing next to text */
+  transform: scale(1.1);
+}
+
+/* File Upload */
+.cute-file {
+  width: 100%;
+  border: 2px dashed var(--primary-color); /* Box Model: Dashed border */
+  padding: 12px; /* Box Model: Internal padding */
+  border-radius: 12px;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.cute-btn-submit,
+.cute-btn-reset {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 12px 24px; /* Box Model: Button padding */
+  margin-top: 10px; /* Box Model: Top margin */
+  margin-right: 10px; /* Box Model: Right spacing between buttons */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.cute-btn-submit {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.cute-btn-submit:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cute-btn-reset {
+  background-color: var(--border-color);
+  color: var(--heading-color);
+}
+
+.cute-btn-reset:hover {
+  background-color: #e2d1dc;
+  transform: translateY(-2px);
+}
+
+/* --- Lists Section --- */
+.cute-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cute-list-item {
+  background-color: var(--input-bg);
+  padding: 10px 16px; /* Box Model: Item padding */
+  margin-bottom: 8px; /* Box Model: Space between list items */
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color); /* Box Model: Left accent border */
+  font-weight: 500;
+}
+
+/* --- Table Styling --- */
+.cute-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.cute-th,
+.cute-td {
+  padding: 12px 18px; /* Box Model: Cell spacing */
+  text-align: left;
+  border-bottom: 1px solid var(--border-color); /* Box Model: Cell bottom line */
+}
+
+.cute-thead {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cute-tr {
+  background-color: var(--card-bg);
+}
+
+.cute-tr:nth-child(even) {
+  background-color: var(--input-bg);
+}
+
+/* --- Footer --- */
+.cute-footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px; /* Box Model: Space above footer */
+  padding: 20px; /* Box Model: Footer inner spacing */
+  color: #9c8da5;
+  font-size: 0.9rem;
+}
