@@ -8,6 +8,7 @@
   --primary-color: #ffb7b2; /* Soft pastel pink */
   --primary-hover: #ff948d;
   --secondary-color: #b5ead7; /* Soft mint */
+  --accent-color: #ffdac1; /* Soft peach */
   --text-color: #6c5b7b;
   --heading-color: #355c7d;
   --border-color: #fce4ec;
@@ -17,8 +18,7 @@
   --radius: 16px;
 }
 
-/* --- Global Resets & Box Model Rule --- */
-/* border-box ensures padding and borders are included in the element's total width/height */
+/* --- Global Resets & Typography --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,118 +30,122 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding: 20px; /* Outer spacing */
+  padding: 20px;
 }
 
-/* --- Header & Navigation (Box Model in Action) --- */
-.cute-header {
-  width: 100%;
-  max-width: 750px;
-  margin: 0 auto 30px auto; /* Box Model: Margins center the block and add bottom spacing */
-  padding: 24px;            /* Box Model: Internal spacing */
+/* --- Header & Navigation --- */
+header {
   background: var(--card-bg);
-  border: 2px dashed var(--border-color); /* Box Model: Border */
+  padding: 24px;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   text-align: center;
+  margin-bottom: 30px;
+  border: 2px dashed var(--border-color);
 }
 
-.cute-title {
+header h1 {
   color: var(--heading-color);
   font-size: 2rem;
-  margin-bottom: 15px; /* Box Model: Margin below title */
+  margin-bottom: 15px;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.cute-nav-list {
+nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.cute-nav-link {
-  display: inline-block;
+nav a {
   text-decoration: none;
   color: var(--text-color);
   background-color: var(--border-color);
-  padding: 8px 18px; /* Box Model: Inner spacing of buttons */
+  padding: 8px 18px;
   border-radius: 20px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.cute-nav-link:hover {
+nav a:hover {
   background-color: var(--primary-color);
   color: #ffffff;
   transform: translateY(-2px);
 }
 
 /* --- Main Layout --- */
-.cute-main {
-  width: 100%;
+main {
   max-width: 750px;
-  margin: 0 auto; /* Box Model: Centering container */
+  margin: 0 auto;
 }
 
-.cute-section {
-  width: 100%;
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+section {
   background: var(--card-bg);
-  padding: 30px; /* Box Model: Generous inner padding */
-  margin-bottom: 25px; /* Box Model: Space between sections */
-  border: 1px solid var(--border-color); /* Box Model: Outer border */
+  padding: 30px;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
 }
 
-.cute-section-title {
+section h2 {
   color: var(--heading-color);
   font-size: 1.5rem;
-  margin-bottom: 15px;
-  border-bottom: 2px solid var(--border-color); /* Box Model: Bottom divider line */
-  padding-bottom: 8px; /* Box Model: Padding above border */
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
 }
 
-.cute-text {
+section p {
   margin-bottom: 20px;
   color: #887894;
 }
 
-/* --- Form Styling (Box Model Properties) --- */
-.cute-fieldset {
-  width: 100%;
-  border: 2px solid var(--border-color); /* Box Model: Fieldset border */
+/* --- Form Styling --- */
+fieldset {
+  border: 2px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 20px; /* Box Model: Internal padding */
-  margin-bottom: 20px; /* Box Model: Bottom margin */
+  padding: 20px;
+  margin-bottom: 20px;
   background-color: var(--input-bg);
 }
 
-.cute-legend {
+legend {
   background-color: var(--primary-color);
   color: #ffffff;
-  padding: 6px 16px; /* Box Model: Legend padding */
+  padding: 6px 16px;
   border-radius: 20px;
   font-weight: 600;
   font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.cute-label {
-  display: block;
-  margin-top: 12px; /* Box Model: Spacing above label */
-  margin-bottom: 6px; /* Box Model: Spacing below label */
+label {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-weight: 600;
   color: var(--heading-color);
 }
 
-.cute-input,
-.cute-select,
-.cute-textarea {
-  width: 100%; /* Box Model: Full width block */
-  padding: 12px 16px; /* Box Model: Internal text breathing room */
-  margin-bottom: 10px; /* Box Model: Spacing below inputs */
-  border: 2px solid var(--border-color); /* Box Model: Input border */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   background-color: #ffffff;
   font-family: inherit;
@@ -150,86 +154,83 @@ body {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.cute-input:focus,
-.cute-select:focus,
-.cute-textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 8px rgba(255, 183, 178, 0.4);
 }
 
 /* Radio & Checkboxes */
-.cute-checkbox,
-.cute-radio {
+input[type="radio"],
+input[type="checkbox"] {
   accent-color: var(--primary-color);
-  margin-right: 8px; /* Box Model: Spacing next to text */
+  margin-right: 6px;
   transform: scale(1.1);
 }
 
 /* File Upload */
-.cute-file {
-  width: 100%;
-  border: 2px dashed var(--primary-color); /* Box Model: Dashed border */
-  padding: 12px; /* Box Model: Internal padding */
+input[type="file"] {
+  border: 2px dashed var(--primary-color);
+  padding: 12px;
   border-radius: 12px;
   background-color: #ffffff;
+  width: 100%;
   cursor: pointer;
-  margin-top: 5px;
 }
 
 /* Buttons */
-.cute-btn-submit,
-.cute-btn-reset {
-  display: inline-block;
+button[type="submit"],
+button[type="reset"] {
   font-family: inherit;
   font-weight: 700;
-  padding: 12px 24px; /* Box Model: Button padding */
-  margin-top: 10px; /* Box Model: Top margin */
-  margin-right: 10px; /* Box Model: Right spacing between buttons */
+  padding: 12px 24px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  margin-right: 10px;
 }
 
-.cute-btn-submit {
+button[type="submit"] {
   background-color: var(--primary-color);
   color: #ffffff;
 }
 
-.cute-btn-submit:hover {
+button[type="submit"]:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-.cute-btn-reset {
+button[type="reset"] {
   background-color: var(--border-color);
   color: var(--heading-color);
 }
 
-.cute-btn-reset:hover {
+button[type="reset"]:hover {
   background-color: #e2d1dc;
   transform: translateY(-2px);
 }
 
-/* --- Lists Section --- */
-.cute-list {
+/* --- Lists & Hobbies Section --- */
+section ul {
   list-style: none;
   padding-left: 0;
 }
 
-.cute-list-item {
+section ul li {
   background-color: var(--input-bg);
-  padding: 10px 16px; /* Box Model: Item padding */
-  margin-bottom: 8px; /* Box Model: Space between list items */
+  margin-bottom: 8px;
+  padding: 10px 16px;
   border-radius: 10px;
-  border-left: 4px solid var(--primary-color); /* Box Model: Left accent border */
+  border-left: 4px solid var(--primary-color);
   font-weight: 500;
 }
 
 /* --- Table Styling --- */
-.cute-table {
+table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
@@ -238,33 +239,32 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.cute-th,
-.cute-td {
-  padding: 12px 18px; /* Box Model: Cell spacing */
+table th,
+table td {
+  padding: 12px 18px;
   text-align: left;
-  border-bottom: 1px solid var(--border-color); /* Box Model: Cell bottom line */
 }
 
-.cute-thead {
+table thead {
   background-color: var(--primary-color);
   color: #ffffff;
   font-weight: 600;
 }
 
-.cute-tr {
+table tbody tr {
   background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.cute-tr:nth-child(even) {
+table tbody tr:nth-child(even) {
   background-color: var(--input-bg);
 }
 
 /* --- Footer --- */
-.cute-footer {
-  width: 100%;
+footer {
   text-align: center;
-  margin-top: 40px; /* Box Model: Space above footer */
-  padding: 20px; /* Box Model: Footer inner spacing */
+  margin-top: 40px;
+  padding: 20px;
   color: #9c8da5;
   font-size: 0.9rem;
 }
